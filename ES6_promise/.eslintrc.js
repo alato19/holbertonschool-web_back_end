@@ -1,7 +1,3 @@
-rules: {
-  'jest/no-large-snapshots': 'off',
-}
-
 module.exports = {
   env: {
     browser: false,

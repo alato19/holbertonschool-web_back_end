@@ -1,48 +1,40 @@
 import Currency from './3-currency';
 
 export default class Pricing {
-    constructor(amount, currency) {
-        if (typeof amount !== "number") {
-            throw new Error("Amount must be a number.")
-        }
-
-        if ( ! (currency instanceof Currency)){
-            throw new Error("Currency must be a currency type.")
-        }
-
-        this._amount = amount;
-        this._currency = currency;
+  constructor(amount, currency) {
+    if (typeof amount !== 'number') {
+      throw new Error('Amount must be a number');
     }
-
-    get amount() {
-        return this._amount;
+    if (!(currency instanceof Currency)) {
+      throw new Error('Currency must be a currency type');
     }
+    this._amount = amount;
+    this._currency = currency;
+  }
 
-    get currency() {
-        return this._currency;
+  get amount() {
+    return this._amount;
+  }
+
+  set amount(amount) {
+    if (typeof amount !== 'number') {
+      throw new Error('Amount must be a number');
     }
+    this._amount = amount;
+  }
 
-    set amount(amount) {
-        if (typeof amount !== "number") {
-            throw new Error("Amount must be a number.")
-        }
-
-        this._amount = amount;
+  set currency(currency) {
+    if (!(currency instanceof Currency)) {
+      throw new Error('Currency must be a currency type');
     }
+    this._currency = currency;
+  }
 
-    set currency(currency) {
-        if ( ! (currency instanceof Currency)){
-            throw new Error("Currency must be a currency type.")
-        }
+  displayFullPrice() {
+    return `${this._amount} (${this._currency.name}) (${this._currency.code})`;
+  }
 
-        this._currency = currency;
-    }
-
-    displayFullPrice() {
-        return `${this._amount} ${this._currency.name} ${this._currency.code}`;
-    }
-
-    static convertPrice(amount, conversionRate) {
-        return amount * conversionRate;
-    } 
+  static convertPrice(amount, conversionRate) {
+    return amount * conversionRate;
+  }
 }

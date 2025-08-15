@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'plugin:jest/all',
+    'plugin:jest/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -28,17 +28,10 @@ module.exports = {
       'WithStatement',
     ],
   },
-  overrides: [
+  overrides:[
     {
       files: ['*.js'],
       excludedFiles: 'babel.config.js',
-    },
-    {
-      files: ['*.js'],
-      rules: {
-        // 🚑 Force disable to stop `.endsWith()` crash
-        'jest/no-large-snapshots': 'off'
-      }
     }
   ]
 };

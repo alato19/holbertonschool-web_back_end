@@ -27,6 +27,8 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
+    // 🚑 Disable problematic Jest rule causing `.endsWith()` crash
+    'jest/no-large-snapshots': 'off'
   },
   overrides:[
     {

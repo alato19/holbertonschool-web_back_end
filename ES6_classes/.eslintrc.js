@@ -27,13 +27,18 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
-    // 🚑 Disable problematic Jest rule causing `.endsWith()` crash
-    'jest/no-large-snapshots': 'off'
   },
-  overrides:[
+  overrides: [
     {
       files: ['*.js'],
       excludedFiles: 'babel.config.js',
+    },
+    {
+      files: ['*.js'],
+      rules: {
+        // 🚑 Force disable to stop `.endsWith()` crash
+        'jest/no-large-snapshots': 'off'
+      }
     }
   ]
 };
